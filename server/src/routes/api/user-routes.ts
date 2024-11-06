@@ -7,10 +7,8 @@ const router = express.Router();
 // GET /users - Get all users
 router.get('/', async (_req: Request, res: Response) => {
   try {
-
-    //TODO MARIE TO DUP FILES FOR JOKES
     const users = await User.findAll({
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] }  // Exclude password from response
     });
     res.json(users);
   } catch (error: any) {
@@ -23,7 +21,7 @@ router.get('/:id', async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const user = await User.findByPk(id, {
-      attributes: { exclude: ['password'] }
+      attributes: { exclude: ['password'] }  // Exclude password from response
     });
     if (user) {
       res.json(user);
@@ -54,7 +52,9 @@ router.put('/:id', async (req: Request, res: Response) => {
     const user = await User.findByPk(id);
     if (user) {
       user.username = username;
-      user.password = password;
+      if (password) {
+        await user.setPassword(password);
+      }
       await user.save();
       res.json(user);
     } else {
