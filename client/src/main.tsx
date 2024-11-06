@@ -4,7 +4,7 @@ import './index.css';
 
 import App from './App.tsx';
 
-import ErrorPage from './pages/ErrorPage.tsx';
+import SubmitaJoke from './pages/SubmitaJoke.tsx';
 import Home from './pages/Home.tsx';
 import Login from './pages/Login.tsx';
 
@@ -12,7 +12,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
-    errorElement: <ErrorPage />,
+    errorElement: <SubmitaJoke />,
     children: [
       {
         index: true,
