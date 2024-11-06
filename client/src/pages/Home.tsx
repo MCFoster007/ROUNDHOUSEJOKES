@@ -6,20 +6,19 @@ import UserList from '../components/Users';
 import auth from '../utils/auth';
 
 const Home = () => {
-
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
+
+    useLayoutEffect(() => {
+        checkLogin();
+    }, []);
 
     useEffect(() => {
         if (loginCheck) {
             fetchUsers();
         }
     }, [loginCheck]);
-
-    useLayoutEffect(() => {
-        checkLogin();
-    }, []);
 
     const checkLogin = () => {
         if (auth.loggedIn()) {
@@ -30,12 +29,12 @@ const Home = () => {
     const fetchUsers = async () => {
         try {
             const data = await retrieveUsers();
-            setUsers(data)
+            setUsers(data);
         } catch (err) {
-            console.error('Failed to retrieve tickets:', err);
+            console.error('Failed to retrieve users:', err);
             setError(true);
         }
-    }
+    };
 
     if (error) {
         return <SubmitaJoke />;
