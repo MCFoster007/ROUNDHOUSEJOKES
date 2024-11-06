@@ -11,7 +11,7 @@ type ButtonProps = {
   const searchAPI = async () => {
     try {
       const response = await fetch(
-        `https://api.chucknorris.io/`,
+        `https://v2.jokeapi.dev/joke/Programming`,
         {
           headers: {
             Authorization: `Bearer ${import.meta.env.API_KEY}`,
