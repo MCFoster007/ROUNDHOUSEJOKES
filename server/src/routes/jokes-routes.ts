@@ -18,22 +18,22 @@ const retrieveJokes = async (_req: Request, res: Response) => {
     return {error: err};
   }
 };
-const retrieveLiked = async (_req: Request, res: Response) => {
-  try {
-    const response = await fetch ()
-    // TODO: find all liked jokes by user with ID, user_ID
+// const retrieveLiked = async (_req: Request, res: Response) => {
+//   try {
+//     const response = await fetch ()
+//     // TODO: find all liked jokes by user with ID, user_ID
 
-    return res.status(418).send ('to be implemented');
-  } catch (err) {
-    console.log("Error from data retrieval:", err);
-    return {error: err};
-  }
+//     return res.status(418).send ('to be implemented');
+//   } catch (err) {
+//     console.log("Error from data retrieval:", err);
+//     return {error: err};
+//   }
 
-};
+// };
 const likeJoke = async (_req: Request, res: Response) => {
   try {
     // TODO: add joke to the DB with user_ID
-    //body mush include joke text and user id 
+    //body must include joke text and user id 
 
     return res.status(418).send ('to be implemented');
   } catch (err) {
@@ -45,6 +45,6 @@ const router = Router();
 
 
 router.get("/Jokes", retrieveJokes);
-router.get('/liked/:user_ID', retrieveLiked);
+// router.get('/liked/:user_ID', retrieveLiked);
 router.post('/like', likeJoke)
 export default router;
