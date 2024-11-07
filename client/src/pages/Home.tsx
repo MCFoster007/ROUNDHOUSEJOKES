@@ -52,6 +52,11 @@ const Home = () => {
                 ) : (
                     <UserList users={users} />
                 )}
+                <div className="button-group">
+                <button onClick={() => handleButtonClick('newJoke')}>New Joke</button>
+                <button onClick={() => handleButtonClick('chuckJokes')}>Chuck Joke</button>
+                <button onClick={() => handleButtonClick('myJokes')}>My Jokes</button>
+            </div>
         </>
     );
 };
