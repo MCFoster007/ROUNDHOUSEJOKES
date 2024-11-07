@@ -10,6 +10,8 @@ const Login = () => {
     password: '',
   });
 
+  const navigate = useNavigate();
+
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
