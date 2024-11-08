@@ -20,7 +20,7 @@ const retrieveJokes = async (_req: Request, res: Response) => {
     return {error: err};
   }
 };
-const retrieveLiked = async (_req: Request, res: Response) => {
+export const retrieveLiked = async (_req: Request, res: Response) => {
   try {
     const userID = _req.params.userID;
     const likedJokes =await Joke.findAll ({where: {userID}});
@@ -32,19 +32,22 @@ const retrieveLiked = async (_req: Request, res: Response) => {
     console.log("Error from data retrieval:", err);
     return res.status(500).json ({error: 'failed to retrieved liked jokes'});
   }
-  return retrieveLiked;
+  
 };
-const likeJoke = async (_req: Request, res: Response) => {
+export const likeJoke = async (_req: Request, res: Response) => {
   try {
+    const {jokeId, userID, text } = _req.body;
+  const newJoke =await Joke.create ({jokeId, userID, text});
+  res.status(201).json (newJoke);
+  
 
-    
     // TODO: add joke to the DB with user_ID
     //body must include joke text and user id 
 
-    return res.status(418).send ('to be implemented');
+    // return res.status(418).send ('to be implemented');
   } catch (err) {
-    console.log("Error from data retrieval:", err);
-    return {error: err};
+    console.log(err);
+    res.status (500).json({message: 'An error occurred while liking the joke'});
   }
 };
 const router = Router();
