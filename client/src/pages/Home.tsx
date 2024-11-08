@@ -9,6 +9,8 @@ const Home = () => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
+    const [joke, setJoke] = useState<string>("");
+
 
     useLayoutEffect(() => {
         checkLogin();
@@ -36,6 +38,10 @@ const Home = () => {
         }
     };
 
+const handleButtonClick = (newJoke: string) => {
+        setJoke(newJoke);
+    };
+
     if (error) {
         return <SubmitaJoke />;
     }
@@ -56,6 +62,10 @@ const Home = () => {
                 <button onClick={() => handleButtonClick('newJoke')}>New Joke</button>
                 <button onClick={() => handleButtonClick('chuckJokes')}>Chuck Joke</button>
                 <button onClick={() => handleButtonClick('myJokes')}>My Jokes</button>
+            </div>
+
+            <div className="joke-box">
+                <p>{joke || "Click a button to get a joke!"}</p>
             </div>
         </>
     );
