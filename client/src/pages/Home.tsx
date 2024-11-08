@@ -100,6 +100,10 @@ const Home = () => {
             <div className="joke-box">
                 <p>{joke || "Click a button to get a joke!"}</p>
             </div>
+        
+            <div className="button-save">
+                <button onClick={() => handleButtonClick('saveJoke')}>Save Joke!</button>
+            </div>  
         </>
     );
 };
