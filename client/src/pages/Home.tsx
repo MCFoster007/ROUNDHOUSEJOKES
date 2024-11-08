@@ -44,6 +44,17 @@ const Home = () => {
         }
     };
 
+    const fetchChuckJoke = async (): Promise<string> => {
+        try {
+            const response = await fetch('https://api.chucknorris.io/jokes/random');
+            const data = await response.json();
+            return data.value;
+        } catch (error) {
+            console.error('Error fetching Chuck Norris joke:', error);
+            return 'Sorry, we couldn\'t fetch a Chuck Norris joke at the moment.';
+        }
+    };
+
     const fetchUsers = async () => {
         try {
             const data = await retrieveUsers();
@@ -58,9 +69,12 @@ const Home = () => {
         if (jokeType === 'newJoke') {
             const newJoke = await fetchNewJoke();
             setJoke(newJoke);
+        } else if (jokeType === 'chuckJokes') {
+            const chuckJoke = await fetchChuckJoke();
+            setJoke(chuckJoke);
         }
     };
-
+   
     if (error) {
         return <SubmitaJoke />;
     }
