@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { login } from '../api/authAPI';
 import type { UserLogin } from '../interfaces/UserLogin';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [loginData, setLoginData] = useState<UserLogin>({
@@ -61,6 +62,19 @@ const Login = () => {
           <button className='btn btn-primary' type='submit'>
             Login
           </button>
+        </div>
+        <div>
+        <button className='btn' type='button'>
+            <Link to='/signUp'>
+            <img 
+                src="/sign-up.png" 
+                alt="Sign Up Icon" 
+                width="60" 
+                height="60" 
+                style={{ cursor: 'pointer' }}
+               />
+            </Link>
+            </button>
         </div>
       </form>
     </div>
