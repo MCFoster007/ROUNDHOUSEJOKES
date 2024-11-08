@@ -2,7 +2,7 @@ import { Router, type Request, type Response } from "express";
 
 const retrieveCNJokes = async (_req: Request, res: Response) => {
   try {
-    const category = 'Food';
+    const category = 'food';
     const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
 
     const response = await fetch(url, {
