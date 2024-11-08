@@ -3,7 +3,7 @@ import {Joke} from '../models/likedJoke.js';
 
 const retrieveJokes = async (_req: Request, res: Response) => {
   try {
-    const response = await fetch("https://v2.jokeapi.dev/joke/Programming", {
+    const response = await fetch("https://icanhazdadjoke.com/", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -20,9 +20,9 @@ const retrieveJokes = async (_req: Request, res: Response) => {
     return {error: err};
   }
 };
-export const retrieveLiked = async (_req: Request, res: Response) => {
+export const retrieveLiked = async (req: Request, res: Response) => {
   try {
-    const userID = _req.params.userID;
+    const userID = req.params.userID;
     const likedJokes =await Joke.findAll ({where: {userID}});
     return res.status(200).json(likedJokes);
     // TODO: find all liked jokes by user with ID, user_ID
@@ -34,9 +34,9 @@ export const retrieveLiked = async (_req: Request, res: Response) => {
   }
   
 };
-export const likeJoke = async (_req: Request, res: Response) => {
+export const likeJoke = async (req: Request, res: Response) => {
   try {
-    const {jokeId, userID, text } = _req.body;
+    const {jokeId, userID, text } = req.body;
   const newJoke =await Joke.create ({jokeId, userID, text});
   res.status(201).json (newJoke);
   
@@ -54,7 +54,7 @@ const router = Router();
 
 
 router.get("/Jokes", retrieveJokes);
-// router.get('/liked/:user_ID', retrieveLiked);
+router.get('/liked/:userID', retrieveLiked);
 router.post('/like', likeJoke)
 
 

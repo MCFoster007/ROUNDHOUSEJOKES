@@ -30,7 +30,7 @@ const Home = () => {
 
     const fetchNewJoke = async (): Promise<string> => {
         try {
-            const response = await fetch('https://v2.jokeapi.dev/joke/Any');
+            const response = await fetch('https://icanhazdadjoke.com/');
             const data = await response.json();
 
             if (data.type === 'single') {
@@ -46,7 +46,9 @@ const Home = () => {
 
     const fetchChuckJoke = async (): Promise<string> => {
         try {
-            const response = await fetch('https://api.chucknorris.io/jokes/random');
+            const category = 'food';
+            const url = `https://api.chucknorris.io/jokes/random?category=${category}`;
+            const response = await fetch(url);
             const data = await response.json();
             return data.value;
         } catch (error) {
