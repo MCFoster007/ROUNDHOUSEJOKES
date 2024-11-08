@@ -28,6 +28,22 @@ const Home = () => {
         }
     };
 
+    const fetchNewJoke = async (): Promise<string> => {
+        try {
+            const response = await fetch('https://v2.jokeapi.dev/joke/Any');
+            const data = await response.json();
+
+            if (data.type === 'single') {
+                return data.joke;
+            } else {
+                return `${data.setup} - ${data.delivery}`;
+            }
+        } catch (error) {
+            console.error('Error fetching new joke:', error);
+            return 'Sorry, we couldn`t fetch a new joke at the moment.';
+        }
+    };
+
     const fetchUsers = async () => {
         try {
             const data = await retrieveUsers();
@@ -38,8 +54,11 @@ const Home = () => {
         }
     };
 
-const handleButtonClick = (newJoke: string) => {
-        setJoke(newJoke);
+    const handleButtonClick = async (jokeType: string) => {
+        if (jokeType === 'newJoke') {
+            const newJoke = await fetchNewJoke();
+            setJoke(newJoke);
+        }
     };
 
     if (error) {
@@ -58,7 +77,7 @@ const handleButtonClick = (newJoke: string) => {
                 ) : (
                     <UserList users={users} />
                 )}
-                <div className="button-group">
+            <div className="button-group">
                 <button onClick={() => handleButtonClick('newJoke')}>New Joke</button>
                 <button onClick={() => handleButtonClick('chuckJokes')}>Chuck Joke</button>
                 <button onClick={() => handleButtonClick('myJokes')}>My Jokes</button>
