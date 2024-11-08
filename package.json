@@ -25,6 +25,8 @@
     "wait-on": "^7.2.0"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "jsonwebtoken": "^9.0.2",
     "sequelize": "^6.37.5"
   }
 }
