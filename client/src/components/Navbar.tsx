@@ -29,8 +29,16 @@ const Navbar = () => {
       <div>
         {!loginCheck ? (
           <button className='btn' type='button'>
-            <Link to='/login'>Login</Link>
-          </button>
+            <Link to='/login'>
+            <img 
+                src="/login.png" 
+                alt="Login Icon" 
+                width="60" 
+                height="60" 
+                style={{ cursor: 'pointer' }}
+               />
+                </Link>
+                </button>
         ) : (
           <button
             className='btn'
