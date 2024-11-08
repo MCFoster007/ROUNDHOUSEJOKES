@@ -1,7 +1,7 @@
 import { Router, type Request, type Response } from "express";
 const retrieveCNJokes = async (_req: Request, res: Response) => {
   try {
-    const response = await fetch("https://api.chucknorris.io/jokes/random", {
+    const response = await fetch("https://api.chucknorris.io/jokes/random?category=food", {
       headers: {
         "Content-Type": "application/json",
       },
