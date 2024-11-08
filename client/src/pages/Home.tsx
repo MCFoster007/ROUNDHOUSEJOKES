@@ -9,6 +9,8 @@ const Home = () => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
+    const [joke, setJoke] = useState<string>("");
+
 
     useLayoutEffect(() => {
         checkLogin();
@@ -26,6 +28,33 @@ const Home = () => {
         }
     };
 
+    const fetchNewJoke = async (): Promise<string> => {
+        try {
+            const response = await fetch('https://v2.jokeapi.dev/joke/Any');
+            const data = await response.json();
+
+            if (data.type === 'single') {
+                return data.joke;
+            } else {
+                return `${data.setup} - ${data.delivery}`;
+            }
+        } catch (error) {
+            console.error('Error fetching new joke:', error);
+            return 'Sorry, we couldn`t fetch a new joke at the moment.';
+        }
+    };
+
+    const fetchChuckJoke = async (): Promise<string> => {
+        try {
+            const response = await fetch('https://api.chucknorris.io/jokes/random');
+            const data = await response.json();
+            return data.value;
+        } catch (error) {
+            console.error('Error fetching Chuck Norris joke:', error);
+            return 'Sorry, we couldn\'t fetch a Chuck Norris joke at the moment.';
+        }
+    };
+
     const fetchUsers = async () => {
         try {
             const data = await retrieveUsers();
@@ -36,6 +65,16 @@ const Home = () => {
         }
     };
 
+    const handleButtonClick = async (jokeType: string) => {
+        if (jokeType === 'newJoke') {
+            const newJoke = await fetchNewJoke();
+            setJoke(newJoke);
+        } else if (jokeType === 'chuckJokes') {
+            const chuckJoke = await fetchChuckJoke();
+            setJoke(chuckJoke);
+        }
+    };
+   
     if (error) {
         return <SubmitaJoke />;
     }
@@ -52,6 +91,19 @@ const Home = () => {
                 ) : (
                     <UserList users={users} />
                 )}
+            <div className="button-group">
+                <button onClick={() => handleButtonClick('newJoke')}>New Joke</button>
+                <button onClick={() => handleButtonClick('chuckJokes')}>Chuck Joke</button>
+                <button onClick={() => handleButtonClick('myJokes')}>My Jokes</button>
+            </div>
+
+            <div className="joke-box">
+                <p>{joke || "Click a button to get a joke!"}</p>
+            </div>
+        
+            <div className="button-save">
+                <button onClick={() => handleButtonClick('saveJoke')}>Save Joke!</button>
+            </div>  
         </>
     );
 };
