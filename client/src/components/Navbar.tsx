@@ -18,7 +18,14 @@ const Navbar = () => {
 
   return (
     <div className='display-flex justify-space-between align-center py-2 px-5 mint-green'>
-      <h1>RoundHouse Jokes</h1>
+      <h1> RoundHouse Jokes 
+        <img 
+          src="/laugh.png" 
+          alt="Laugh Icon" 
+          style={{ width: '40px', height: '40px', marginLeft: '10px', verticalAlign: 'middle' }} 
+        />
+
+      </h1>
       <div>
         {!loginCheck ? (
           <button className='btn' type='button'>
