@@ -30,15 +30,26 @@ const Home = () => {
 
     const fetchNewJoke = async (): Promise<string> => {
         try {
-            const response = await fetch('https://icanhazdadjoke.com/');
-            const data = await response.json();
+            const response = await fetch('https://icanhazdadjoke.com/', {
+                headers: {
+                    'Accept': 'application/json',
+                },
+            });
+           if (!response.ok) {
+            throw new Error('Can not generate joke');
 
-            if (data.type === 'single') {
-                return data.joke;
-            } else {
-                return `${data.setup} - ${data.delivery}`;
-            }
-        } catch (error) {
+           }
+           const data = await response.json();
+           return data.joke;
+               
+        }
+            
+            // if (data.type === 'single') {
+            //     return data.joke;
+            // } else {
+            //     return `${data.setup} - ${data.delivery}`;
+            // }
+         catch (error) {
             console.error('Error fetching new joke:', error);
             return 'Sorry, we couldn`t fetch a new joke at the moment.';
         }
