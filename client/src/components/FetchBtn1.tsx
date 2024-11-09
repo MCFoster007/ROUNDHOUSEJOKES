@@ -1,5 +1,5 @@
 type ButtonProps = {
-    onResults: (data: any) => void;
+    onResults: (data:unknown) => void;
   };
   
   const ApiSearchButton: React.FC<ButtonProps> = ({ onResults }) => {
