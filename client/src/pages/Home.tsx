@@ -3,16 +3,20 @@ import { retrieveUsers } from "../api/userAPI";
 import type { UserData } from "../interfaces/UserData";
 import UserList from '../components/Users';
 import auth from '../utils/auth';
+import { handleSaveJoke } from "../components/likedJokes";
+import { Joke } from "../../../server/src/models/likedJoke";
 
 // Import sound files
 import newJokeSound from '../../public/newJokeSound.wav';
 import chuckJokeSound from '../../public/chuckJokeSound.wav';
+import { getLikedJokes } from "../api/authAPI";
 
-const Home = () => {
+const Home = ({ userID }: { userID?: number }) => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
     const [joke, setJoke] = useState<string>("");
+    // const [likedJokes, setLikedJokes] = useState<string[]>([]);
 
     // Check login status when the component mounts
     useLayoutEffect(() => {
@@ -90,6 +94,55 @@ const Home = () => {
         }
     };
 
+    // interface JokeData {
+    //     id: string,
+    //     userID: number,
+    //     text: string
+    // }
+
+    // let joke: InstanceType<typeof Joke>;
+
+
+    const handleSaveCurrentJoke = async () => {
+        console.log("UserID in handleSaveCurrentJoke:", userID);
+        if (joke && userID) {
+            const jokeData = {
+                id: new Date().toISOString(), // Assuming `id` here is meant to be a unique identifier
+                text: joke,
+            };
+    
+            console.log('Saving joke data:', jokeData);
+    
+            try {
+                await handleSaveJoke(jokeData); // Pass both jokeData and userID
+            } catch (error) {
+                console.error('Error saving joke:', error);
+            }
+        }
+    };
+
+    const LikedJokesComponent = () => {
+        const [likedJokes, setLikedJokes] = useState<Joke[]>([]);
+    
+        useEffect(() => {
+            handleShowLikedJokes();
+        }, []);
+    
+        const handleShowLikedJokes = async () => {
+            try {
+                const jokes = await getLikedJokes();
+                setLikedJokes(jokes);
+            } catch (error) {
+                console.error("Failed to retrieve liked jokes:", error);
+            }
+        };
+    
+        // Return only the state and function for use in Home
+        return { likedJokes, handleShowLikedJokes };
+    };
+
+    const { likedJokes, handleShowLikedJokes } = LikedJokesComponent();
+
     if (error) {
         return <div>Error loading users. Please try again later.</div>;
     }
@@ -108,7 +161,7 @@ const Home = () => {
             <div className="button-group">
                 <button onClick={() => handleButtonWithSound('newJoke', newJokeSound)}>New Joke</button>
                 <button onClick={() => handleButtonWithSound('chuckJokes', chuckJokeSound)}>Chuck Joke</button>
-                <button onClick={() => setJoke('Your personal joke!')}>My Jokes</button>
+                <button onClick={handleShowLikedJokes}>My Jokes</button>
             </div>
 
             <div className="joke-box">
@@ -116,7 +169,16 @@ const Home = () => {
             </div>
 
             <div className="button-save">
-                <button onClick={() => console.log("Save Joke functionality not implemented yet.")}>Save Joke!</button>
+                <button onClick={handleSaveCurrentJoke}>Save Joke!</button>
+            </div>
+
+            <div className="likedJokes">
+                <h3>Your Liked Jokes:</h3>
+                <ul>
+                    {likedJokes.map((likedJoke, index) => (
+                        <li key={index}>{likedJoke.text}</li>
+                    ))}
+                </ul>
             </div>
         </>
     );
