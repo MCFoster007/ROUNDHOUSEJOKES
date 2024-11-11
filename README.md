@@ -173,7 +173,7 @@ Documentation: Add comprehensive documentation for all existing features.
 - [ ]Do Jokes "on the go" by developing a mobile app for iOS and Android.
 - [ ]Allow users to submit their own jokes, with approval first.
 - [ ]Implement voting on jokes and comment sections.
-- [ ]Add sound to the button when generating a joke
+
 
 ## Contributing
 
