@@ -377,7 +377,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 h2 {
@@ -1813,7 +1813,7 @@ label form [type='radio'] {
 body {
   background-color: #D5C6A1;
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 .joke-box {
@@ -1879,6 +1879,8 @@ button:hover {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-top: 20px;
+  margin-right: 20px;
+
   text-align: center;
 }
 
@@ -1918,7 +1920,7 @@ button:hover {
 }
 
 .likedJokes h3 {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #333;
   margin-bottom: 15px;
 }
