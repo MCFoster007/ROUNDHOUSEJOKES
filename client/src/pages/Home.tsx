@@ -4,14 +4,14 @@ import type { UserData } from "../interfaces/UserData";
 import UserList from '../components/Users';
 import auth from '../utils/auth';
 import { handleSaveJoke } from "../components/likedJokes";
-import { Joke } from "../../../server/src/models/likedJoke";
+
 //add gifs to bottom of page
 
 // Import sound files
 import newJokeSound from '../../public/newJokeSound.wav';
 import chuckJokeSound from '../../public/chuckJokeSound.wav';
-import { getLikedJokes } from "../api/authAPI";
 
+import { LikedJokesComponent } from "../components/savedjokes";
 const Home = () => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
@@ -125,27 +125,7 @@ const Home = () => {
         }
     };
 
-    const LikedJokesComponent = () => {
-        const [likedJokes, setLikedJokes] = useState<Joke[]>([]);
-
-        useEffect(() => {
-            handleShowLikedJokes();
-        }, []);
-
-        const handleShowLikedJokes = async () => {
-            try {
-                const jokes = await getLikedJokes();
-                setLikedJokes(jokes);
-            } catch (error) {
-                console.error("Failed to retrieve liked jokes:", error);
-            }
-        };
-
-        // Return only the state and function for use in Home
-        return { likedJokes, handleShowLikedJokes };
-    };
-
-    const { likedJokes, handleShowLikedJokes } = LikedJokesComponent();
+    const {likedJokes, handleShowLikedJokes } = LikedJokesComponent();
 
     if (error) {
         return <div>Error loading users. Please try again later.</div>;
