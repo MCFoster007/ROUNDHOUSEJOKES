@@ -48,15 +48,16 @@ const signUp = async (userInfo: UserSignUp) => {
   }
 };
 
-export const saveJoke = async (jokeId: string, text: string) => {
+export const saveJoke = async (jokeId: string, text: string, userID: number) => {
   try {
-    console.log('Sending joke to API:', { jokeId, text });
-    const response = await fetch('/api/likeJoke', {
+    console.log('Sending joke to API:', { jokeId, text, userID });
+    const response = await fetch('/jokesroute/like', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${Auth.getToken()}`
       },
-      body: JSON.stringify({ jokeId, text }),
+      body: JSON.stringify({ jokeId, text, userID}),
     });
     if (!response.ok) {
       throw new Error('Failed to save the joke');

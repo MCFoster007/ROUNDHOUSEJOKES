@@ -46,6 +46,7 @@ export const retrieveLiked = async (req: Request, res: Response) => {
   }
 };
 export const likeJoke = async (req: Request, res: Response) => {
+ console.log(req.body)
   try {
     const {jokeId, userID, text } = req.body;
   const newJoke =await Joke.create ({jokeId, userID, text});

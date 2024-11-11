@@ -20,8 +20,8 @@ export const login = async (req: Request, res: Response) => {
   }
 
   const secretKey = process.env.JWT_SECRET_KEY || '';
-
-  const token = jwt.sign({ username }, secretKey, { expiresIn: '1h' });
+let id = user.id
+  const token = jwt.sign({ username, id }, secretKey, { expiresIn: '1h' });
   return res.json({ token });
 };
 //  export const signUp = async (req: Request, res: Response) => {

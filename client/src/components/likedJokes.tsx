@@ -11,7 +11,7 @@ export const handleSaveJoke = async (joke: { id: string; text: string }) => {
   }
 };
 
-export const handleDisplayLikedJokes = async (setLikedJokes: Function) => {
+export const handleDisplayLikedJokes = async (setLikedJokes: ()=> void) => {
   const jokes = await getLikedJokes();
   setLikedJokes(jokes);
 };

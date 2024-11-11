@@ -16,6 +16,16 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
+      '/jokesroute': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/cnroute': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });
