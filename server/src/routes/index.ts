@@ -10,7 +10,7 @@ const router = Router();
 router.use('/auth', authRoutes);
 router.use('/api', authenticateToken, apiRoutes);
 router.use('/cnroute', cnRoutes);
-router.use('/jokesroute', jokesRoutes);
+router.use('/jokesroute', authenticateToken, jokesRoutes);
 export default router;
 
 
