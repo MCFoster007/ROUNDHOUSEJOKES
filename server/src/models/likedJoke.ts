@@ -21,11 +21,6 @@ interface JokeAttributes {
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
-
-  // Hash the password before saving the user
-//   public async setPassword(password: string) {
-//     const saltRounds = 10;
-//     this.password = await bcrypt.hash(password, saltRounds);
   
 }
 
@@ -58,14 +53,6 @@ export function JokeFactory(sequelize: Sequelize): typeof Joke {
     {
       tableName: 'likedjokes',
       sequelize,
-    //   hooks: {
-    //     beforeCreate: async (user: User) => {
-    //       await user.setPassword(user.password);
-    //     },
-    //     beforeUpdate: async (user: User) => {
-    //       await user.setPassword(user.password);
-    //     },
-    //   },
     }
   );
 
