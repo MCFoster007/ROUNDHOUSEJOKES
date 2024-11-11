@@ -35,7 +35,7 @@ const Login = () => {
   };
 
   return (
-    <div className='form-container'>
+    <div className='page-container'>
       <form className='form login-form' onSubmit={handleSubmit}>
         <h1>Login</h1>
         <div className='form-group'>
@@ -63,7 +63,7 @@ const Login = () => {
             Login
           </button>
         </div>
-        <div>
+        {/* <div>
         <button className='btn' type='button'>
             <Link to='/signUp'>
             <img 
@@ -75,7 +75,7 @@ const Login = () => {
                />
             </Link>
             </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );
