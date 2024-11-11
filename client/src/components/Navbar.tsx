@@ -17,7 +17,7 @@ const Navbar = () => {
   }, [loginCheck]);
 
   return (
-    <div className='display-flex justify-space-between align-center py-2 px-5 mint-green'>
+    <div className='display-flex justify-space-between align-center py-2 px-5 mint-green body'>
       <h1> RoundHouse Jokes 
         <img 
           src="/laugh.png" 
@@ -26,7 +26,20 @@ const Navbar = () => {
         />
 
       </h1>
-      <div>
+
+      <div className="button-group">
+        <button className='btn' type='button'>
+            <Link to='/signUp'>
+            <img 
+                src="/sign-up.png" 
+                alt="Sign Up Icon" 
+                width="60" 
+                height="60" 
+                style={{ cursor: 'pointer' }}
+               />
+            </Link>
+            </button>
+
         {!loginCheck ? (
           <button className='btn' type='button'>
             <Link to='/login'>
