@@ -5,6 +5,7 @@ import UserList from '../components/Users';
 import auth from '../utils/auth';
 import { handleSaveJoke } from "../components/likedJokes";
 import { Joke } from "../../../server/src/models/likedJoke";
+//add gifs to bottom of page
 
 // Import sound files
 import newJokeSound from '../../public/newJokeSound.wav';
@@ -16,7 +17,6 @@ const Home = ({ userID }: { userID?: number }) => {
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
     const [joke, setJoke] = useState<string>("");
-    // const [likedJokes, setLikedJokes] = useState<string[]>([]);
 
     // Check login status when the component mounts
     useLayoutEffect(() => {
@@ -180,8 +180,40 @@ const Home = ({ userID }: { userID?: number }) => {
                     ))}
                 </ul>
             </div>
+    
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                height: "300vh",
+              }}
+            >
+              <div style={{ textAlign: "center" }}>
+              <h1>Chop Chuck Chuckle</h1>
+              <img
+                src="/chucknorris.gif"
+                alt="chuck norris gif"
+                style={{ width: "300px", height: "300px" }}
+               />
+              </div>
+             </div>
+    
+             <div>
+                <h1>Happy</h1>
+                <img
+                  src="happy.gif"
+                  alt="happy gif"
+                  style={{
+                    width: "100px",
+                    height: "100px",
+                    marginLeft: "100px",
+                    verticalAlign: "middle",
+                  }}
+                />
+             </div>
         </>
     );
-};
+
 
 export default Home;
