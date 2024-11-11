@@ -12,7 +12,7 @@ import newJokeSound from '../../public/newJokeSound.wav';
 import chuckJokeSound from '../../public/chuckJokeSound.wav';
 import { getLikedJokes } from "../api/authAPI";
 
-const Home = ({ userID }: { userID?: number }) => {
+const Home = () => {
     const [users, setUsers] = useState<UserData[]>([]);
     const [error, setError] = useState(false);
     const [loginCheck, setLoginCheck] = useState(false);
@@ -104,11 +104,15 @@ const Home = ({ userID }: { userID?: number }) => {
 
 
     const handleSaveCurrentJoke = async () => {
+      const userData = auth.getProfile()
+      const userID = userData.id
+      console.log (userData)
         console.log("UserID in handleSaveCurrentJoke:", userID);
         if (joke && userID) {
             const jokeData = {
                 id: new Date().toISOString(), // Assuming `id` here is meant to be a unique identifier
                 text: joke,
+                userID: userID
             };
     
             console.log('Saving joke data:', jokeData);
@@ -214,6 +218,6 @@ const Home = ({ userID }: { userID?: number }) => {
              </div>
         </>
     );
-
+}
 
 export default Home;
