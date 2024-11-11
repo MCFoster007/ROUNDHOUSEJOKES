@@ -18,20 +18,14 @@
 
 </div>
 
-<!-- TODO:::PROJECT LOGO -->
-
 <div align="center">
-  <a href="https://github.com/MCFoster007/ROUNDHOUSEJOKES">
-  <!-- TODO: Correct this file path to a logo if you would like one; otherwise, delete this a href -->
-    <img src="./public/images/" alt="Logo" width="80" height="80">
-  </a>
-
-<!-- TODO: Edit App name -->
-  <h3 align="center">Project 2 App Name</h3>
+ 
+  <h3 align="center">ROUNDHOUSE JOKES</h3>
 
   <p align="center">
-  <!-- TODO: Edit App description -->
-    Project 2 Description will go here    <br />
+ Roundhouse Jokes is your go-to app for an endless supply of laughs! Featuring a mix of classic humor and the legendary wit of Chuck Norris, this app is designed to deliver a new joke every time you need a pick-me-up. Whether you're a fan of quick one-liners, punny jokes, or the unstoppable humor of Chuck Norris, Roundhouse Jokes has got you covered!
+
+  <br />
     <a href="https://github.com/MCFoster007/ROUNDHOUSEJOKES"><strong>Explore the docs »</strong></a>
     <br />
     <br />
@@ -200,7 +194,7 @@ This project is licensed under the MIT license.
 
 [Sebastian Casadevall](sacasadevall@gmail.com)              
 
-[Andres Gianesi](acgianesi@gmail.com)
+[Andre Gianesi](acgianesi@gmail.com)
 
 [Marie-Chantal Foster](mariechantalfoster@gmail.com) 
 
