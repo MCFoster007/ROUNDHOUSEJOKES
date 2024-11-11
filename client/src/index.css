@@ -377,6 +377,7 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
 }
 
 h2 {
@@ -984,7 +985,6 @@ a:hover {
   border: 1px solid transparent;
   outline: none;
   color: #1a1a1a;
-  background-color: #e3f9e5;
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
@@ -1809,6 +1809,13 @@ label form [type='radio'] {
 
 /* added some style to the HOME page */
 
+
+body {
+  background-color: #D5C6A1;
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
 .joke-box {
   padding: 20px;
   background-color: #f4f4f4;
@@ -1831,7 +1838,7 @@ label form [type='radio'] {
 button {
   padding: 10px 20px;
   background-color: #35a89a;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -1860,4 +1867,58 @@ button:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
+
+/* page container styling  */
+
+.page-container {
+  width: 100%;
+  max-width: 900px;
+  padding: 20px;
+  background-color: #e3f9e5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* added styling to gif container */
+
+.gif-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.gif-container div {
+  text-align: center;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 20px;
+}
+
+.gif-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  max-height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gif-container img:hover {
+  transform: scale(1.05);
+}
+
+/* styling on likedJokes section */
+
+.likedJokes {
+  margin-top: 30px;
+}
+
+.likedJokes h3 {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #333;
+  margin-bottom: 15px;
 }
