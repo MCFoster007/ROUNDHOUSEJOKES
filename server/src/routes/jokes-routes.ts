@@ -1,6 +1,6 @@
 import { Router, type Request, type Response } from "express";
 import {Joke} from '../models/likedJoke.js';
-import {User} from '../models/user.js';
+// import {User} from '../models/user.js';
 
 // const retrieveJokes = async (_req: Request, res: Response) => {
 //   try {
@@ -23,22 +23,12 @@ import {User} from '../models/user.js';
 // };
 export const retrieveLiked = async (req: Request, res: Response) => {
   try {
-    // Retrieve the user's identifier from request (e.g., req.user.username or req.user.email)
-    const username = req.user?.username; // Assuming `username` is stored in `req.user` by auth middleware
-
-    if (!username) {
+    // Cast req.user to include id directly
+    const userId = (req.user?.id)
+    if (!userId) {
       return res.status(400).json({ error: 'User not authenticated' });
     }
-
-    // Find the User record by username (or other unique identifier like email)
-    const user = await User.findOne({ where: { username } });
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
-    }
-
-    // Use the `id` from the User model
-    const likedJokes = await Joke.findAll({ where: { userID: user.id } });
+    const likedJokes = await Joke.findAll({ where: { userID: userId } });
     return res.status(200).json(likedJokes);
   } catch (err) {
     console.log("Error from data retrieval:", err);

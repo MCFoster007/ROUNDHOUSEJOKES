@@ -49,13 +49,17 @@ const signUp = async (userInfo: UserSignUp) => {
 };
 
 export const saveJoke = async (jokeId: string, text: string, userID: number) => {
+  const token = Auth.getToken ();
+  if (!token){
+    console.error("No token available");
+  }
   try {
     console.log('Sending joke to API:', { jokeId, text, userID });
     const response = await fetch('/jokesroute/like', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${Auth.getToken()}`
+        'Authorization': `Bearer ${Auth.getToken()}`
       },
       body: JSON.stringify({ jokeId, text, userID}),
     });
