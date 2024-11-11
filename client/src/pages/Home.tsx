@@ -104,9 +104,9 @@ const Home = () => {
 
 
     const handleSaveCurrentJoke = async () => {
-      const userData = auth.getProfile()
-      const userID = userData.id
-      console.log (userData)
+        const userData = auth.getProfile()
+        const userID = userData.id
+        console.log(userData)
         console.log("UserID in handleSaveCurrentJoke:", userID);
         if (joke && userID) {
             const jokeData = {
@@ -114,9 +114,9 @@ const Home = () => {
                 text: joke,
                 userID: userID
             };
-    
+
             console.log('Saving joke data:', jokeData);
-    
+
             try {
                 await handleSaveJoke(jokeData); // Pass both jokeData and userID
             } catch (error) {
@@ -127,11 +127,11 @@ const Home = () => {
 
     const LikedJokesComponent = () => {
         const [likedJokes, setLikedJokes] = useState<Joke[]>([]);
-    
+
         useEffect(() => {
             handleShowLikedJokes();
         }, []);
-    
+
         const handleShowLikedJokes = async () => {
             try {
                 const jokes = await getLikedJokes();
@@ -140,7 +140,7 @@ const Home = () => {
                 console.error("Failed to retrieve liked jokes:", error);
             }
         };
-    
+
         // Return only the state and function for use in Home
         return { likedJokes, handleShowLikedJokes };
     };
@@ -152,11 +152,11 @@ const Home = () => {
     }
 
     return (
-        <>
+        <div className="page-container">
             {
                 !loginCheck ? (
                     <div className='login-notice'>
-                        <h1>Let's KICK a smile on your face!</h1>
+                        <h1>Let's KICK a &#x1F601; on your face!</h1>
                     </div>
                 ) : (
                     <UserList users={users} />
@@ -184,39 +184,21 @@ const Home = () => {
                     ))}
                 </ul>
             </div>
-    
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                height: "300vh",
-              }}
-            >
-              <div style={{ textAlign: "center" }}>
-              <h1>Chop Chuck Chuckle</h1>
-              <img
-                src="/chucknorris.gif"
-                alt="chuck norris gif"
-                style={{ width: "300px", height: "300px" }}
-               />
-              </div>
-             </div>
-    
-             <div>
-                <h1>Happy</h1>
-                <img
-                  src="happy.gif"
-                  alt="happy gif"
-                  style={{
-                    width: "100px",
-                    height: "100px",
-                    marginLeft: "100px",
-                    verticalAlign: "middle",
-                  }}
-                />
-             </div>
-        </>
+
+            <div className="gif-container">
+                <div>
+                    <img src="/chucknorris.gif" alt="chuck norris gif" />
+                </div>
+
+                <div>
+                    <img src="happy.gif" alt="happy gif" />
+                </div>
+            </div>
+            <div className="footer">
+                <p>Created with &#x1F90E; by Andre, Marie and Sebastian.</p>
+                <p>© 2024 ROUNDHOUSEJOKES. All Rights Reserved.</p>
+            </div>
+        </div>
     );
 }
 
