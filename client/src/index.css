@@ -1834,6 +1834,12 @@ body {
   gap: 10px;
   justify-content: center;
 }
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
 
 button {
   padding: 10px 20px;
@@ -1878,9 +1884,7 @@ button:hover {
   background-color: #e3f9e5;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  margin-right: 20px;
-
+  margin: 20px auto;
   text-align: center;
 }
 
