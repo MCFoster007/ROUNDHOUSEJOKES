@@ -377,7 +377,11 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+<<<<<<< HEAD
+  font-family: 'Comic Sans', cursive, sans-serif;
+=======
   font-family: 'Comic Sans MS', sans-serif;
+>>>>>>> 4b6169d203b3f32060dd53374100d5e82949c160
 }
 
 h2 {
