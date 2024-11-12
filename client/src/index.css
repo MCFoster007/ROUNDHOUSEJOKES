@@ -377,7 +377,11 @@ h6 {
 
 h1 {
   font-size: 2.25rem;
+<<<<<<< HEAD
   font-family: 'Comic Sans', cursive, sans-serif;
+=======
+  font-family: 'Comic Sans MS', sans-serif;
+>>>>>>> 4b6169d203b3f32060dd53374100d5e82949c160
 }
 
 h2 {
@@ -1813,7 +1817,7 @@ label form [type='radio'] {
 body {
   background-color: #D5C6A1;
   margin: 0;
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
 }
 
 .joke-box {
@@ -1833,6 +1837,12 @@ body {
   display: flex;
   gap: 10px;
   justify-content: center;
+}
+@media (max-width: 600px) {
+  .button-group {
+    flex-direction: column;
+    gap: 15px;
+  }
 }
 
 button {
@@ -1878,7 +1888,7 @@ button:hover {
   background-color: #e3f9e5;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
+  margin: 20px auto;
   text-align: center;
 }
 
@@ -1918,7 +1928,7 @@ button:hover {
 }
 
 .likedJokes h3 {
-  font-family: 'Comic Sans MS', cursive, sans-serif;
+  font-family: 'Comic Sans MS', sans-serif;
   color: #333;
   margin-bottom: 15px;
 }

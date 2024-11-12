@@ -17,41 +17,41 @@ const Navbar = () => {
   }, [loginCheck]);
 
   return (
-    <div className='display-flex justify-space-between align-center py-2 px-5 mint-green body'>
-      <h1> RoundHouse Jokes 
-        <img 
-          src="/laugh.png" 
-          alt="Laugh Icon" 
-          style={{ width: '40px', height: '40px', marginLeft: '10px', verticalAlign: 'middle' }} 
+    <div className='display-flex justify-space-between align-center py-2 px-5 mint-green body page-container'>
+      <h1> RoundHouse Jokes
+        <img
+          src="/laugh.png"
+          alt="Laugh Icon"
+          style={{ width: '40px', height: '40px', marginLeft: '10px', verticalAlign: 'middle' }}
         />
 
       </h1>
 
       <div className="button-group">
         <button className='btn' type='button'>
-            <Link to='/signUp'>
-            <img 
-                src="/sign-up.png" 
-                alt="Sign Up Icon" 
-                width="60" 
-                height="60" 
-                style={{ cursor: 'pointer' }}
-               />
-            </Link>
-            </button>
+          <Link to='/signUp'>
+            <img
+              src="/sign-up.png"
+              alt="Sign Up Icon"
+              width="60"
+              height="60"
+              style={{ cursor: 'pointer' }}
+            />
+          </Link>
+        </button>
 
         {!loginCheck ? (
           <button className='btn' type='button'>
             <Link to='/login'>
-            <img 
-                src="/login.png" 
-                alt="Login Icon" 
-                width="60" 
-                height="60" 
+              <img
+                src="/login.png"
+                alt="Login Icon"
+                width="60"
+                height="60"
                 style={{ cursor: 'pointer' }}
-               />
-                </Link>
-                </button>
+              />
+            </Link>
+          </button>
         ) : (
           <button
             className='btn'
@@ -60,7 +60,13 @@ const Navbar = () => {
               auth.logout();
             }}
           >
-            Logout
+            <img
+              src="/logout.png"
+              alt="Logout Icon"
+              width="60"
+              height="60"
+              style={{ cursor: 'pointer' }}
+            />
           </button>
         )}
       </div>
