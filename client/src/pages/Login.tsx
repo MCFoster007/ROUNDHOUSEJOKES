@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Auth from '../utils/auth';
 import { login } from '../api/authAPI';
 import type { UserLogin } from '../interfaces/UserLogin';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [loginData, setLoginData] = useState<UserLogin>({
@@ -63,7 +63,7 @@ const Login = () => {
             Login
           </button>
         </div>
-        <div>
+        {/* <div>
         <button className='btn' type='button'>
             <Link to='/signUp'>
             <img 
@@ -75,7 +75,7 @@ const Login = () => {
                />
             </Link>
             </button>
-        </div>
+        </div> */}
       </form>
     </div>
   );

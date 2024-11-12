@@ -1,14 +1,8 @@
 # ROUNDHOUSE JOKES
 
-<!-- For assistance using this README for your project, reach out to your instructinoal staff. -->
-
-<!-- TODO: Highlight "404pandas" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Username and type your Username in its place -->
-<!-- TODO: Highlight "project-2-setup-guide" and shift+command+L (for mac) or cntrl+shift+L (for windows) to select all instances of the example Github Repository name and type your repostitory name in its place -->
 
 <div align="center">
 
-  <!-- Add additional badges using the following format: -->
-  <!-- ![Name](urlToShieldHere)(urlToGithubHere) -->
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Contributors](https://img.shields.io/github/contributors/404pandas/project-2-setup-guide.svg?style=plastic&logo=appveyor)](https://github.com/404pandas/project-2-setup-guide/graphs/contributors)
@@ -29,12 +23,12 @@
     <a href="https://github.com/MCFoster007/ROUNDHOUSEJOKES"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <!-- TODO: Edit deployment link -->
-    <a href="https://github.com/404pandas/project-2-setup-guide">View Demo(Coming Soon)</a>
+  
+    <a href="https://mcfoster007.github.io/ROUNDHOUSEJOKES/>github deployed</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Report Bug</a>
+    <a href="https://roundhousejokes-r6oq.onrender.com">live site</a>
     ·
-    <a href="https://github.com/404pandas/project-2-setup-guide/issues">Request Feature</a>
+
 
   </p>
 </div>
@@ -64,15 +58,15 @@
   </ol>
 </details>
 
-<!-- TODO:ABOUT THE PROJECT -->
+
 
 ## About The Project
-
-<!-- TODO: add your screenshots or demo videos here -->
-<!-- Add screenshots using the following format: -->
-<!-- ![Screenshot alt description](directPathOfScreenshots) -->
-<!-- Add video demos using the following format: -->
-<!-- ![Video alt description](directPathOfVideos) -->
+https://youtu.be/LUiIxgXJZtk
+/Users/mcmindmachine/Desktop/RoundHouse Jokes/client/public/signupsrnsht.png
+/Users/mcmindmachine/Desktop/RoundHouse Jokes/client/public/first pagescrnsht.png
+/Users/mcmindmachine/Desktop/RoundHouse Jokes/client/public/secondjokeshownss.png
+/Users/mcmindmachine/Desktop/RoundHouse Jokes/client/public/signuplistss.png
+/Users/mcmindmachine/Desktop/RoundHouse Jokes/client/public/jokeshownss.png
 
 This project was built using Node, Express, Handlebars, PostgreSQL, and Sequelize.
 
